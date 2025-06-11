@@ -2015,70 +2015,95 @@ html {
 }
 /* Make Stepper Smaller on Mobile */
 @media (max-width: 768px) {
+    /* Keep horizontal but make everything smaller */
     .step-circle-container {
         max-width: 95% !important;
         width: 95% !important;
         margin: 0 auto !important;
-        padding: 1rem !important;
-        max-height: 400px !important;
-        min-height: 350px !important;
+        padding: 1rem 0.5rem !important;
+        max-height: 300px !important;
     }
     
+    /* Horizontal row - keep it but smaller */
     .step-indicator-row {
-        padding: 1rem 0.5rem !important;
-        gap: 0.3rem !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1rem 0.3rem !important;
+        gap: 0.2rem !important;
     }
     
+    /* Much smaller step circles */
     .step-indicator-inner {
-        width: 1.5rem !important;
-        height: 1.5rem !important;
-        font-size: 0.8rem !important;
+        width: 1rem !important;
+        height: 1rem !important;
+        font-size: 0.6rem !important;
     }
     
+    /* Smaller active dots */
+    .active-dot {
+        width: 0.4rem !important;
+        height: 0.4rem !important;
+    }
+    
+    /* Smaller check icons */
+    .check-icon {
+        width: 0.7rem !important;
+        height: 0.7rem !important;
+    }
+    
+    /* Thin horizontal connectors */
     .step-connector {
-        height: 2px !important;
-        margin: 0 0.3rem !important;
+        width: auto !important;
+        height: 1px !important;
         flex: 1 !important;
+        max-width: 2rem !important;
+        margin: 0 0.2rem !important;
     }
     
+    /* Compact content area */
     .tutorial-step {
-        padding: 1rem 0.5rem !important;
+        padding: 1rem 0.5rem 1.5rem 0.5rem !important;
+        text-align: center !important;
     }
     
     .tutorial-step h3 {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
         margin-bottom: 0.5rem !important;
     }
     
     .tutorial-step p {
-        font-size: 0.9rem !important;
-        line-height: 1.4 !important;
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
         margin-bottom: 1rem !important;
     }
     
     .step-icon {
-        font-size: 2rem !important;
+        font-size: 1.8rem !important;
         margin-bottom: 0.8rem !important;
     }
     
     .step-highlight {
-        padding: 0.8rem !important;
+        padding: 0.6rem !important;
         margin-top: 0.8rem !important;
-        font-size: 0.85rem !important;
+        font-size: 0.8rem !important;
     }
     
+    /* Compact footer */
     .footer-nav {
         margin-top: 1rem !important;
         padding: 0 0.5rem !important;
     }
     
-    .next-button {
-        padding: 0.4rem 1rem !important;
-        font-size: 0.9rem !important;
+    .next-button, .back-button {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.8rem !important;
     }
     
-    .back-button {
-        padding: 0.4rem 0.8rem !important;
-        font-size: 0.9rem !important;
+    /* Make outer container smaller */
+    .outer-container {
+        padding: 0.5rem !important;
+        min-height: auto !important;
     }
 }
