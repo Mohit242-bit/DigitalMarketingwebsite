@@ -1,5 +1,5 @@
 /**
- * Brandformance AI Chat Bot - SECURE DEMO VERSION
+ * Skyline AI Chat Bot - SECURE DEMO VERSION
  * File: chatbot.js
  * Description: Portfolio demo with realistic responses (no API key exposure)
  */
@@ -113,7 +113,7 @@ To give you a personalized estimate, what's your:
 - Main business goal (leads, sales, awareness)?
 - Industry/business type?`,
 
-            hello: `Hello! 👋 Welcome to Brandformance! I'm Alex, your AI marketing assistant.
+            hello: `Hello! 👋 Welcome to Skyline! I'm Alex, your AI marketing assistant.
 
 I can help you with:
 • Finding the right marketing strategy
@@ -551,7 +551,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Expose chat bot for external use
-window.BrandformanceChatBot = {
+window.SkylineChatBot = {
     open: () => window.chatBot?.openChat(),
     close: () => window.chatBot?.closeChat(),
     sendMessage: (message) => window.chatBot?.addMessage(message, false),

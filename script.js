@@ -1044,7 +1044,7 @@ console.log(`
 %c
 ╔══════════════════════════════════════════╗
 ║                                          ║
-║       🚀 BRANDFORMANCE WEBSITE 🚀       ║
+║       🚀 SKYLINE DIGITAL WEBSITE 🚀      ║
 ║                                          ║
 ║     Professional Digital Marketing       ║
 ║     with Interactive Stepper             ║
