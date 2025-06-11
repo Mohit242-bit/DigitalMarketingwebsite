@@ -2068,4 +2068,53 @@ html {
         min-height: auto !important;
         padding: 1rem 0.5rem !important;
     }
+    
+    .step-circle-container {
+        max-height: none !important;
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+    
+    .step-content-default {
+        overflow: visible !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    .step-content {
+        position: relative !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+    
+    .tutorial-step {
+        padding: 1.5rem 1rem 2rem 1rem !important;
+        height: auto !important;
+        min-height: 300px !important;
+        overflow: visible !important;
+    }
+    
+    .stepper-section {
+        padding: 3rem 1rem 4rem 1rem !important;
+        overflow: visible !important;
+    }
+    
+    .footer-container {
+        margin-top: 2rem !important;
+        padding: 1.5rem 1rem 2rem 1rem !important;
+    }
+    
+    .outer-container {
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        padding: 1rem 0.5rem 2rem 0.5rem !important;
+    }
+    
+    /* Ensure contact section doesn't overlap */
+    .contact {
+        margin-top: 3rem !important;
+        clear: both !important;
+    }
 }
