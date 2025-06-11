@@ -2013,108 +2013,72 @@ html {
 .chat-messages::-webkit-scrollbar-thumb:hover {
     background: var(--accent-blue);
 }
-/* Mobile Stepper Fix */
+/* Make Stepper Smaller on Mobile */
 @media (max-width: 768px) {
+    .step-circle-container {
+        max-width: 95% !important;
+        width: 95% !important;
+        margin: 0 auto !important;
+        padding: 1rem !important;
+        max-height: 400px !important;
+        min-height: 350px !important;
+    }
+    
     .step-indicator-row {
-        flex-direction: column !important;
-        align-items: center !important;
-        gap: 1rem !important;
-        padding: 1.5rem 1rem !important;
+        padding: 1rem 0.5rem !important;
+        gap: 0.3rem !important;
+    }
+    
+    .step-indicator-inner {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+        font-size: 0.8rem !important;
     }
     
     .step-connector {
-        width: 2px !important;
-        height: 3rem !important;
-        margin: 0.5rem 0 !important;
-        flex: none !important;
-    }
-    
-    .step-connector-inner {
-        width: 100% !important;
-        height: 0% !important;
-        bottom: 0 !important;
-        left: 0 !important;
-    }
-    
-    .step-indicator {
-        margin: 0 !important;
+        height: 2px !important;
+        margin: 0 0.3rem !important;
+        flex: 1 !important;
     }
     
     .tutorial-step {
-        padding: 1.5rem 1rem !important;
-        text-align: center !important;
-    }
-    
-    .tutorial-step h3 {
-        font-size: 1.4rem !important;
-    }
-    
-    .tutorial-step p {
-        font-size: 0.95rem !important;
-        line-height: 1.5 !important;
-    }
-    
-    .step-icon {
-        font-size: 2.5rem !important;
-        margin-bottom: 1rem !important;
-    }
-    
-    .step-circle-container {
-        max-height: none !important;
-        min-height: auto !important;
-    }
-    
-    .outer-container {
-        min-height: auto !important;
         padding: 1rem 0.5rem !important;
     }
     
-    .step-circle-container {
-        max-height: none !important;
-        min-height: auto !important;
-        height: auto !important;
-        overflow: visible !important;
+    .tutorial-step h3 {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.5rem !important;
     }
     
-    .step-content-default {
-        overflow: visible !important;
-        height: auto !important;
-        min-height: auto !important;
+    .tutorial-step p {
+        font-size: 0.9rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
     }
     
-    .step-content {
-        position: relative !important;
-        height: auto !important;
-        min-height: auto !important;
+    .step-icon {
+        font-size: 2rem !important;
+        margin-bottom: 0.8rem !important;
     }
     
-    .tutorial-step {
-        padding: 1.5rem 1rem 2rem 1rem !important;
-        height: auto !important;
-        min-height: 300px !important;
-        overflow: visible !important;
+    .step-highlight {
+        padding: 0.8rem !important;
+        margin-top: 0.8rem !important;
+        font-size: 0.85rem !important;
     }
     
-    .stepper-section {
-        padding: 3rem 1rem 4rem 1rem !important;
-        overflow: visible !important;
+    .footer-nav {
+        margin-top: 1rem !important;
+        padding: 0 0.5rem !important;
     }
     
-    .footer-container {
-        margin-top: 2rem !important;
-        padding: 1.5rem 1rem 2rem 1rem !important;
+    .next-button {
+        padding: 0.4rem 1rem !important;
+        font-size: 0.9rem !important;
     }
     
-    .outer-container {
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        padding: 1rem 0.5rem 2rem 0.5rem !important;
-    }
-    
-    /* Ensure contact section doesn't overlap */
-    .contact {
-        margin-top: 3rem !important;
-        clear: both !important;
+    .back-button {
+        padding: 0.4rem 0.8rem !important;
+        font-size: 0.9rem !important;
     }
 }
