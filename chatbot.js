@@ -1,104 +1,161 @@
 /**
- * Brandformance AI Chat Bot
+ * Brandformance AI Chat Bot - SECURE DEMO VERSION
  * File: chatbot.js
- * Description: Real AI-powered chat bot with lead capture
- * Author: Brandformance Team
+ * Description: Portfolio demo with realistic responses (no API key exposure)
  */
 
 class AIChatBot {
     constructor() {
-        // ⚠️ IMPORTANT: Replace with your FREE Gemini API key
-        this.API_KEY = 'AIzaSyBCYY9M_IAXDyVKNBC_32BakmCw81T3DNg';
-        this.API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
-
+        // 🔒 SECURE: No real API key in demo version
+        this.isDemoMode = true;
         this.conversation = [];
         this.isOpen = false;
         this.isTyping = false;
+        
+        // Demo responses that simulate real AI
+        this.demoResponses = {
+            seo: `Perfect! I'd love to help you dominate search results. 🎯
 
+Our SEO optimization includes:
+• **Technical SEO audits** - Fix what's holding you back
+• **Keyword research** - Target the right search terms  
+• **Content optimization** - Make your pages rank higher
+• **Link building** - Build authority and trust
+
+Quick question: What's your biggest SEO challenge right now?
+- Not ranking on Google at all?
+- Rankings dropped recently?  
+- Can't beat your competitors?
+- Website traffic is too low?`,
+
+            ppc: `Excellent choice! PPC can deliver immediate results. 🚀
+
+Our PPC management includes:
+• **Google Ads campaigns** - Get found instantly
+• **Social media advertising** - Facebook, Instagram, LinkedIn
+• **Campaign optimization** - Maximize your ROI
+• **Performance tracking** - See exactly what's working
+
+What's driving your interest in PPC? Looking for:
+- Immediate traffic boost?
+- More qualified leads?
+- Better ROI from current ads?
+- Launch a new product/service?`,
+
+            social: `Great! Social media is crucial for brand growth. 📱
+
+Our social media marketing includes:
+• **Content strategy** - Engaging posts that convert
+• **Community management** - Build loyal followers
+• **Paid social campaigns** - Targeted advertising
+• **Analytics & reporting** - Track your growth
+
+Which platforms are most important for your business?
+- LinkedIn (B2B focus)?
+- Instagram/Facebook (B2C)?
+- TikTok (younger audience)?
+- All of the above?`,
+
+            content: `Smart thinking! Content is what drives long-term growth. ✍️
+
+Our content marketing includes:
+• **Blog strategy** - Articles that rank and convert
+• **Video content** - Engaging visual storytelling
+• **Email campaigns** - Nurture your audience
+• **Brand storytelling** - Connect with your customers
+
+What type of content challenges are you facing?
+- Don't know what to write about?
+- No time to create content?
+- Content isn't generating leads?
+- Need a complete content strategy?`,
+
+            analytics: `Perfect! You can't improve what you don't measure. 📊
+
+Our analytics & insights include:
+• **Performance tracking** - See what's actually working
+• **Custom dashboards** - All your data in one place
+• **Conversion analysis** - Understand your customer journey
+• **Strategic recommendations** - Data-driven growth plans
+
+What analytics challenges are you facing?
+- Don't know what to track?
+- Have data but can't interpret it?
+- Need better reporting tools?
+- Want to improve conversions?`,
+
+            brand: `Excellent! Strong branding is the foundation of everything. 🎨
+
+Our brand strategy includes:
+• **Brand positioning** - Stand out from competitors
+• **Market research** - Understand your audience
+• **Visual identity** - Professional, memorable design
+• **Brand guidelines** - Consistent messaging everywhere
+
+What's your biggest branding challenge?
+- Need to rebrand completely?
+- Inconsistent brand messaging?
+- Don't stand out from competitors?
+- New business needing brand identity?`,
+
+            booking: `Perfect! I'd love to set up your free consultation. Let me get a few details from you. 📅`,
+
+            roi: `Great question! Let me help you estimate your potential ROI. 📈
+
+Our clients typically see:
+• **300% average ROI increase** across all services
+• **150% boost in organic traffic** (SEO)
+• **4-6x return** on PPC ad spend
+• **85% increase** in social engagement
+
+To give you a personalized estimate, what's your:
+- Current monthly marketing spend?
+- Main business goal (leads, sales, awareness)?
+- Industry/business type?`,
+
+            hello: `Hello! 👋 Welcome to Brandformance! I'm Alex, your AI marketing assistant.
+
+I can help you with:
+• Finding the right marketing strategy
+• Understanding our services  
+• Booking a free consultation
+• Calculating potential ROI
+
+What brings you here today?`,
+
+            default: `Thanks for your question! 😊 
+
+I'm here to help you with digital marketing strategies. I can provide specific guidance on:
+
+🎯 **SEO** - Get found on Google
+🚀 **PPC** - Immediate traffic boost  
+📱 **Social Media** - Build your brand
+✍️ **Content** - Engage your audience
+📊 **Analytics** - Track your success
+🎨 **Branding** - Stand out from competitors
+
+What marketing challenge can I help you solve?`
+        };
+        
         this.init();
     }
 
     init() {
         this.bindEvents();
         this.setupWelcomeMessage();
-        this.addSystemContext();
+        this.addDemoNotice();
     }
 
-    // IMPROVED SYSTEM PROMPT - Replace in your chatbot.js
-
-    addSystemContext() {
-        this.systemPrompt = `You are Alex, an AI marketing assistant for Brandformance, a professional digital marketing agency. 
-
-Your personality:
-- Marketing expert who asks specific, qualifying questions
-- Results-focused and data-driven
-- Professional but conversational
-- Always curious about the user's specific situation
-
-IMPORTANT: When users ask about a specific service, dive deep into that service rather than listing all services.
-
-Services & Specific Responses:
-
-**SEO Optimization:**
-- Ask about current rankings, traffic, competitors
-- Mention technical audits, keyword research, content optimization
-- Common problems: not ranking, dropped rankings, low traffic
-- Timeframe: 3-6 months for significant results
-
-**PPC Advertising:**
-- Ask about current ad spend, goals, platforms
-- Mention Google Ads, Facebook/Instagram ads, LinkedIn ads
-- Focus on ROI, cost per lead, immediate results
-- Typical results: 4-6x return on ad spend
-
-**Social Media Marketing:**
-- Ask which platforms they care about most
-- Mention content strategy, community management, paid social
-- Focus on engagement, brand awareness, lead generation
-- Different strategies for B2B vs B2C
-
-**Content Marketing:**
-- Ask about current content efforts and challenges
-- Mention blog strategy, video content, email campaigns
-- Focus on lead generation and thought leadership
-- Long-term strategy that compounds over time
-
-**Analytics & Insights:**
-- Ask what they're currently tracking (or not tracking)
-- Mention dashboards, conversion tracking, performance analysis
-- Help them understand what metrics matter most
-- Focus on turning data into actionable insights
-
-**Brand Strategy:**
-- Ask about current brand positioning and challenges
-- Mention market research, competitive analysis, brand guidelines
-- Focus on differentiation and consistent messaging
-- Foundation for all other marketing efforts
-
-Key Stats to Use:
-- 500+ clients served across all industries
-- 300% average ROI increase
-- 24/7 support and monthly reporting
-- 150% average increase in organic traffic
-- 85% average increase in social engagement
-
-Conversation Flow:
-1. Understand their specific challenge in detail
-2. Ask qualifying questions about their business
-3. Provide specific insights about their situation
-4. Explain how Brandformance can help their exact problem
-5. Guide toward a free consultation when appropriate
-
-Always ask follow-up questions to understand:
-- Their industry/business type
-- Current situation (what's working/not working)
-- Specific goals and timeline
-- Budget range (when relevant)
-- Previous marketing experience
-
-If someone mentions booking, consultation, or wants to talk to someone, immediately offer to collect their details for a free consultation.
-
-Keep responses conversational but informative. Use emojis occasionally but professionally. Always focus on their specific needs rather than generic service descriptions.`;
+    addDemoNotice() {
+        // Add subtle demo indicator
+        setTimeout(() => {
+            const chatHeader = document.querySelector('.ai-info');
+            if (chatHeader) {
+                const status = chatHeader.querySelector('.status');
+                status.textContent = 'Demo Mode • Experience the interface';
+                status.style.color = '#ffa500';
+            }
+        }, 1000);
     }
 
     bindEvents() {
@@ -178,7 +235,7 @@ Keep responses conversational but informative. Use emojis occasionally but profe
         chatIcon.style.display = 'none';
         closeIcon.style.display = 'block';
         badge.style.display = 'none';
-
+        
         this.isOpen = true;
 
         // Focus input
@@ -200,14 +257,14 @@ Keep responses conversational but informative. Use emojis occasionally but profe
         chatToggle.classList.remove('active');
         chatIcon.style.display = 'block';
         closeIcon.style.display = 'none';
-
+        
         this.isOpen = false;
     }
 
     async handleSendMessage() {
         const input = document.getElementById('chatInput');
         const message = input.value.trim();
-
+        
         if (!message || this.isTyping) return;
 
         // Clear input
@@ -219,13 +276,13 @@ Keep responses conversational but informative. Use emojis occasionally but profe
         // Hide quick actions after first message
         this.hideQuickActions();
 
-        // Check for special commands
+        // Check for special commands first
         if (this.handleSpecialCommands(message)) {
             return;
         }
 
-        // Send to AI
-        await this.sendToAI(message);
+        // Send to demo AI
+        await this.sendToDemoAI(message);
     }
 
     sendMessage(message) {
@@ -244,12 +301,12 @@ Keep responses conversational but informative. Use emojis occasionally but profe
                 <div class="message-time">${this.getCurrentTime()}</div>
             </div>
         `;
-
+        
         messagesContainer.appendChild(messageDiv);
         this.scrollToBottom();
 
         // Track message
-        this.trackEvent('user_message_sent', { message: message });
+        this.trackEvent('user_message_sent', { message: message, mode: 'demo' });
     }
 
     async addAIMessage(message) {
@@ -263,235 +320,78 @@ Keep responses conversational but informative. Use emojis occasionally but profe
                 <div class="message-time">${this.getCurrentTime()}</div>
             </div>
         `;
-
+        
         messagesContainer.appendChild(messageDiv);
         this.scrollToBottom();
 
         // Track AI response
-        this.trackEvent('ai_message_sent', { message: message });
+        this.trackEvent('ai_message_sent', { message: message, mode: 'demo' });
     }
 
-    async sendToAI(userMessage) {
+    async sendToDemoAI(userMessage) {
         this.showTyping();
-
-        try {
-            // Add user message to conversation history
-            this.conversation.push({
-                role: 'user',
-                parts: [{ text: userMessage }]
-            });
-
-            // Prepare the full conversation with system context
-            const fullConversation = [
-                {
-                    role: 'user',
-                    parts: [{ text: this.systemPrompt }]
-                },
-                ...this.conversation
-            ];
-
-            const response = await fetch(`${this.API_URL}?key=${this.API_KEY}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    contents: fullConversation
-                })
-            });
-
-            if (!response.ok) {
-                throw new Error(`API Error: ${response.status}`);
-            }
-
-            const data = await response.json();
-            const aiResponse = data.candidates[0].content.parts[0].text;
-
-            // Add AI response to conversation history
-            this.conversation.push({
-                role: 'model',
-                parts: [{ text: aiResponse }]
-            });
-
-            this.hideTyping();
-            await this.addAIMessage(aiResponse);
-
-        } catch (error) {
-            console.error('AI Error:', error);
-            this.hideTyping();
-
-            // Fallback response
-            const fallbackResponse = this.getFallbackResponse(userMessage);
-            await this.addAIMessage(fallbackResponse);
-        }
+        
+        // Simulate realistic AI response time
+        const delay = Math.random() * 2000 + 1000; // 1-3 seconds
+        
+        await new Promise(resolve => setTimeout(resolve, delay));
+        
+        const response = this.getSmartDemoResponse(userMessage);
+        
+        this.hideTyping();
+        await this.addAIMessage(response);
     }
 
-    getFallbackResponse(userMessage) {
-        const lowerMessage = userMessage.toLowerCase();
-
-        if (lowerMessage.includes('book') || lowerMessage.includes('appointment') || lowerMessage.includes('consultation')) {
-            return "I'd love to help you book a consultation! Let me collect a few details from you. 📅";
-        } else if (lowerMessage.includes('service') || lowerMessage.includes('help')) {
-            return "We offer SEO, PPC, Social Media Marketing, Content Marketing, Analytics, and Brand Strategy. Which area interests you most?";
-        } else if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
-            return "Our pricing depends on your specific needs. Let's discuss your goals in a free consultation to provide accurate pricing. Would you like to schedule one?";
-        } else {
-            return "I'm having a brief connection issue, but I'm here to help! Could you tell me more about your marketing goals or if you'd like to schedule a consultation?";
+    getSmartDemoResponse(message) {
+        const lowerMessage = message.toLowerCase();
+        
+        // Check for specific keywords and return appropriate responses
+        if (lowerMessage.includes('seo') || lowerMessage.includes('search') || lowerMessage.includes('ranking')) {
+            return this.demoResponses.seo;
         }
+        
+        if (lowerMessage.includes('ppc') || lowerMessage.includes('ads') || lowerMessage.includes('google ads') || lowerMessage.includes('advertising')) {
+            return this.demoResponses.ppc;
+        }
+        
+        if (lowerMessage.includes('social media') || lowerMessage.includes('facebook') || lowerMessage.includes('instagram') || lowerMessage.includes('linkedin')) {
+            return this.demoResponses.social;
+        }
+        
+        if (lowerMessage.includes('content') || lowerMessage.includes('blog') || lowerMessage.includes('writing')) {
+            return this.demoResponses.content;
+        }
+        
+        if (lowerMessage.includes('analytics') || lowerMessage.includes('data') || lowerMessage.includes('tracking') || lowerMessage.includes('metrics')) {
+            return this.demoResponses.analytics;
+        }
+        
+        if (lowerMessage.includes('brand') || lowerMessage.includes('branding') || lowerMessage.includes('identity')) {
+            return this.demoResponses.brand;
+        }
+        
+        if (lowerMessage.includes('roi') || lowerMessage.includes('return') || lowerMessage.includes('calculate') || lowerMessage.includes('cost')) {
+            return this.demoResponses.roi;
+        }
+        
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            return this.demoResponses.hello;
+        }
+        
+        // Default response with helpful suggestions
+        return this.demoResponses.default;
     }
-
-    // IMPROVED SEO-SPECIFIC RESPONSES
-    // Add this to your chatbot.js file in the handleSpecialCommands function
 
     handleSpecialCommands(message) {
         const lowerMessage = message.toLowerCase();
-
-        // SEO Help - Specific response
-        if (lowerMessage.includes('i need help with seo') || lowerMessage.includes('seo help')) {
-            setTimeout(() => {
-                this.addAIMessage(`Perfect! I'd love to help you dominate search results. 🎯
-
-Our SEO optimization includes:
-• **Technical SEO audits** - Fix what's holding you back
-• **Keyword research** - Target the right search terms  
-• **Content optimization** - Make your pages rank higher
-• **Link building** - Build authority and trust
-
-Quick question: What's your biggest SEO challenge right now?
-- Not ranking on Google at all?
-- Rankings dropped recently?  
-- Can't beat your competitors?
-- Website traffic is too low?`);
-            }, 500);
-            return true;
-        }
-
-        // PPC Help - Specific response
-        if (lowerMessage.includes('i want to book a consultation') || lowerMessage.includes('ppc') || lowerMessage.includes('google ads')) {
-            setTimeout(() => {
-                this.addAIMessage(`Excellent choice! PPC can deliver immediate results. 🚀
-
-Our PPC management includes:
-• **Google Ads campaigns** - Get found instantly
-• **Social media advertising** - Facebook, Instagram, LinkedIn
-• **Campaign optimization** - Maximize your ROI
-• **Performance tracking** - See exactly what's working
-
-What's driving your interest in PPC? Looking for:
-- Immediate traffic boost?
-- More qualified leads?
-- Better ROI from current ads?
-- Launch a new product/service?`);
-            }, 500);
-            return true;
-        }
-
-        // Social Media Help
-        if (lowerMessage.includes('social media') || lowerMessage.includes('social')) {
-            setTimeout(() => {
-                this.addAIMessage(`Great! Social media is crucial for brand growth. 📱
-
-Our social media marketing includes:
-• **Content strategy** - Engaging posts that convert
-• **Community management** - Build loyal followers
-• **Paid social campaigns** - Targeted advertising
-• **Analytics & reporting** - Track your growth
-
-Which platforms are most important for your business?
-- LinkedIn (B2B focus)?
-- Instagram/Facebook (B2C)?
-- TikTok (younger audience)?
-- All of the above?`);
-            }, 500);
-            return true;
-        }
-
-        // Content Marketing Help
-        if (lowerMessage.includes('content') || lowerMessage.includes('blog')) {
-            setTimeout(() => {
-                this.addAIMessage(`Smart thinking! Content is what drives long-term growth. ✍️
-
-Our content marketing includes:
-• **Blog strategy** - Articles that rank and convert
-• **Video content** - Engaging visual storytelling
-• **Email campaigns** - Nurture your audience
-• **Brand storytelling** - Connect with your customers
-
-What type of content challenges are you facing?
-- Don't know what to write about?
-- No time to create content?
-- Content isn't generating leads?
-- Need a complete content strategy?`);
-            }, 500);
-            return true;
-        }
-
-        // Analytics Help
-        if (lowerMessage.includes('analytics') || lowerMessage.includes('tracking') || lowerMessage.includes('data')) {
-            setTimeout(() => {
-                this.addAIMessage(`Perfect! You can't improve what you don't measure. 📊
-
-Our analytics & insights include:
-• **Performance tracking** - See what's actually working
-• **Custom dashboards** - All your data in one place
-• **Conversion analysis** - Understand your customer journey
-• **Strategic recommendations** - Data-driven growth plans
-
-What analytics challenges are you facing?
-- Don't know what to track?
-- Have data but can't interpret it?
-- Need better reporting tools?
-- Want to improve conversions?`);
-            }, 500);
-            return true;
-        }
-
-        // Brand Strategy Help
-        if (lowerMessage.includes('brand') || lowerMessage.includes('branding')) {
-            setTimeout(() => {
-                this.addAIMessage(`Excellent! Strong branding is the foundation of everything. 🎨
-
-Our brand strategy includes:
-• **Brand positioning** - Stand out from competitors
-• **Market research** - Understand your audience
-• **Visual identity** - Professional, memorable design
-• **Brand guidelines** - Consistent messaging everywhere
-
-What's your biggest branding challenge?
-- Need to rebrand completely?
-- Inconsistent brand messaging?
-- Don't stand out from competitors?
-- New business needing brand identity?`);
-            }, 500);
-            return true;
-        }
-
+        
         // Booking intent
         if (lowerMessage.includes('book') || lowerMessage.includes('appointment') || lowerMessage.includes('consultation') || lowerMessage.includes('meeting')) {
             setTimeout(() => {
-                this.addAIMessage("Perfect! I'd love to set up your free consultation. Let me get a few details from you. 📅");
+                this.addAIMessage(this.demoResponses.booking);
                 setTimeout(() => {
                     this.showLeadModal();
                 }, 1000);
-            }, 500);
-            return true;
-        }
-
-        // ROI Calculator
-        if (lowerMessage.includes('roi') || lowerMessage.includes('calculator') || lowerMessage.includes('calculate')) {
-            setTimeout(() => {
-                this.addAIMessage(`Great question! Let me help you estimate your potential ROI. 📈
-
-Our clients typically see:
-• **300% average ROI increase** across all services
-• **150% boost in organic traffic** (SEO)
-• **4-6x return** on PPC ad spend
-• **85% increase** in social engagement
-
-To give you a personalized estimate, what's your:
-- Current monthly marketing spend?
-- Main business goal (leads, sales, awareness)?
-- Industry/business type?`);
             }, 500);
             return true;
         }
@@ -503,7 +403,7 @@ To give you a personalized estimate, what's your:
         this.isTyping = true;
         const typingIndicator = document.getElementById('typingIndicator');
         const sendBtn = document.getElementById('sendBtn');
-
+        
         typingIndicator.style.display = 'flex';
         sendBtn.disabled = true;
         this.scrollToBottom();
@@ -513,7 +413,7 @@ To give you a personalized estimate, what's your:
         this.isTyping = false;
         const typingIndicator = document.getElementById('typingIndicator');
         const sendBtn = document.getElementById('sendBtn');
-
+        
         typingIndicator.style.display = 'none';
         sendBtn.disabled = false;
     }
@@ -528,13 +428,13 @@ To give you a personalized estimate, what's your:
     showLeadModal() {
         const modal = document.getElementById('leadModalOverlay');
         modal.style.display = 'flex';
-
+        
         // Focus first input
         setTimeout(() => {
             modal.querySelector('input[name="name"]').focus();
         }, 100);
 
-        this.trackEvent('lead_modal_opened');
+        this.trackEvent('lead_modal_opened', { mode: 'demo' });
     }
 
     closeModal() {
@@ -544,7 +444,7 @@ To give you a personalized estimate, what's your:
 
     async handleLeadSubmission(e) {
         e.preventDefault();
-
+        
         const formData = new FormData(e.target);
         const leadData = {
             name: formData.get('name'),
@@ -552,25 +452,27 @@ To give you a personalized estimate, what's your:
             company: formData.get('company'),
             challenge: formData.get('challenge'),
             timestamp: new Date().toISOString(),
-            source: 'ai_chatbot'
+            source: 'ai_chatbot_demo'
         };
 
-        // Here you would normally send to your backend
-        console.log('Lead captured:', leadData);
-
-        // For now, we'll simulate success
+        // In demo mode, just log and show success
+        console.log('Demo Lead Captured:', leadData);
+        
         this.closeModal();
-
+        
         // Add success message to chat
         setTimeout(() => {
-            this.addAIMessage(`Thanks ${leadData.name}! 🎉 I've got your details. Our team will reach out within 24 hours to schedule your free consultation. In the meantime, feel free to ask me any questions about our services!`);
+            this.addAIMessage(`Thanks ${leadData.name}! 🎉 
+
+**Demo Mode Notice:** In the live version, our team would reach out within 24 hours to schedule your free consultation. 
+
+This demo shows how the AI captures and qualifies leads automatically. Pretty cool, right?
+
+Want to see the real AI in action? Contact us for a live demonstration!`);
         }, 500);
 
         // Track conversion
-        this.trackEvent('lead_submitted', leadData);
-
-        // You can integrate with your CRM here
-        // await this.sendToCRM(leadData);
+        this.trackEvent('demo_lead_submitted', leadData);
 
         // Reset form
         e.target.reset();
@@ -604,24 +506,11 @@ To give you a personalized estimate, what's your:
     }
 
     trackEvent(eventName, data = {}) {
-        // Analytics tracking - integrate with Google Analytics, etc.
-        console.log('Chat Event:', eventName, data);
-
-        // Example Google Analytics integration:
-        // if (typeof gtag !== 'undefined') {
-        //     gtag('event', eventName, {
-        //         event_category: 'chatbot',
-        //         custom_parameters: data
-        //     });
-        // }
-
-        // Example Facebook Pixel integration:
-        // if (typeof fbq !== 'undefined') {
-        //     fbq('track', 'CustomEvent', {
-        //         event_name: eventName,
-        //         ...data
-        //     });
-        // }
+        // Analytics tracking for demo
+        console.log('Demo Chat Event:', eventName, data);
+        
+        // In production, you'd integrate with analytics here
+        // Example: Google Analytics, Facebook Pixel, etc.
     }
 
     // Public methods for external integration
@@ -641,76 +530,21 @@ To give you a personalized estimate, what's your:
         for (let i = messages.length - 1; i > 0; i--) {
             messages[i].remove();
         }
-
+        
         // Show quick actions again
         document.getElementById('quickActions').style.display = 'flex';
-    }
-
-    // CRM Integration (example)
-    async sendToCRM(leadData) {
-        try {
-            // Replace with your CRM endpoint
-            const response = await fetch('/api/leads', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(leadData)
-            });
-
-            if (response.ok) {
-                console.log('Lead sent to CRM successfully');
-                return true;
-            } else {
-                throw new Error('CRM API error');
-            }
-        } catch (error) {
-            console.error('CRM integration error:', error);
-            return false;
-        }
-    }
-
-    // Email notification (example)
-    async sendEmailNotification(leadData) {
-        try {
-            // Replace with your email service endpoint
-            const response = await fetch('/api/send-notification', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    to: 'hello@brandformance.com',
-                    subject: `New Lead from Chat Bot: ${leadData.name}`,
-                    lead: leadData
-                })
-            });
-
-            if (response.ok) {
-                console.log('Email notification sent');
-            }
-        } catch (error) {
-            console.error('Email notification error:', error);
-        }
     }
 }
 
 // Initialize the chat bot when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // Check if chat bot HTML exists
     if (document.getElementById('aiChatWidget')) {
         window.chatBot = new AIChatBot();
-
-        // Optional: Auto-open chat after delay for first-time visitors
-        // setTimeout(() => {
-        //     if (!localStorage.getItem('chatBotSeen')) {
-        //         window.chatBot.openChat();
-        //         localStorage.setItem('chatBotSeen', 'true');
-        //     }
-        // }, 5000);
-
-        console.log('🤖 AI Chat Bot initialized successfully!');
-        console.log('💡 Tip: Use window.chatBot.openChat() to open programmatically');
+        
+        console.log('🤖 AI Chat Bot (Demo Mode) initialized successfully!');
+        console.log('💡 This is a secure demo version for portfolio showcase');
+        console.log('🔒 No API keys exposed - production version available on request');
     } else {
         console.warn('⚠️ Chat bot HTML not found. Make sure to include the chat widget HTML.');
     }
@@ -723,13 +557,6 @@ window.BrandformanceChatBot = {
     sendMessage: (message) => window.chatBot?.addMessage(message, false),
     sendUserMessage: (message) => window.chatBot?.addMessage(message, true),
     clearChat: () => window.chatBot?.clearConversation(),
-    isOpen: () => window.chatBot?.isOpen || false
-};
-
-// Debug helpers (remove in production)
-window.ChatBotDebug = {
-    getConversation: () => window.chatBot?.conversation || [],
-    getApiKey: () => window.chatBot?.API_KEY?.substring(0, 10) + '...',
-    testFallback: (message) => window.chatBot?.getFallbackResponse(message),
-    trackTest: (event, data) => window.chatBot?.trackEvent(event, data)
+    isOpen: () => window.chatBot?.isOpen || false,
+    isDemoMode: () => true
 };
