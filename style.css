@@ -2021,7 +2021,8 @@ html {
         width: 95% !important;
         margin: 0 auto !important;
         padding: 1rem 0.5rem !important;
-        max-height: 300px !important;
+        max-height: 280px !important;
+        padding-bottom: 0.5rem !important;
     }
     
     /* Horizontal row - keep it but smaller */
@@ -2064,7 +2065,7 @@ html {
     
     /* Compact content area */
     .tutorial-step {
-        padding: 1rem 0.5rem 1.5rem 0.5rem !important;
+        padding: 1rem 0.5rem 0.8rem 0.5rem !important;
         text-align: center !important;
     }
     
@@ -2086,13 +2087,19 @@ html {
     
     .step-highlight {
         padding: 0.6rem !important;
-        margin-top: 0.8rem !important;
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
         font-size: 0.8rem !important;
     }
     
-    /* Compact footer */
+    /* Move footer/buttons closer - FIX FOR OVERLAP */
+    .footer-container {
+        padding: 0.3rem 1rem 0.8rem 1rem !important;
+        margin-top: 0 !important;
+    }
+    
     .footer-nav {
-        margin-top: 1rem !important;
+        margin-top: 0.3rem !important;
         padding: 0 0.5rem !important;
     }
     
@@ -2105,5 +2112,21 @@ html {
     .outer-container {
         padding: 0.5rem !important;
         min-height: auto !important;
+    }
+    
+    /* Make step content more compact */
+    .step-content-default {
+        padding-bottom: 0 !important;
+    }
+    
+    /* Add space between stepper and contact sections */
+    .contact {
+        margin-top: 3rem !important;
+        padding-top: 2rem !important;
+    }
+    
+    /* Add padding to stepper section bottom */
+    .stepper-section {
+        padding-bottom: 3rem !important;
     }
 }
